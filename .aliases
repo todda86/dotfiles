@@ -19,6 +19,7 @@ alias where=which # sometimes i forget
 alias brwe=brew  #typos
 
 alias hosts='sudo $EDITOR /etc/hosts'   # yes I occasionally 127.0.0.1 twitter.com ;)
+alias vpnfix='sudo ~/bin/vpn_fix.sh'
 
 alias ag='ag -f --hidden'
 
@@ -69,9 +70,23 @@ alias cleanup_dsstore="find . -name '*.DS_Store' -type f -ls -delete"
 alias diskspace_report="df -P -kHl"
 alias free_diskspace_report="diskspace_report"
 
+# kube
+alias kdev='k config use-context dev'
+alias kqa='k config use-context qa'
+alias kqa='k config use-context qa'
+alias ksys='k config use-context system'
+alias kmon='k config use-context monitoring'
+alias kconf="k config use-context"
+
+alias kenv='k config get-contexts'
+alias pods='k get pods'
+alias services='k get services'
+
 # Shortcuts
+alias k="kubectl"
 alias g="git"
 alias v="vim"
+alias vi="vim"
 alias ungz="gunzip -k"
 
 # File size
@@ -82,10 +97,27 @@ alias emptytrash=" \
     sudo rm -rfv /Volumes/*/.Trashes; \
     rm -rfv ~/.Trash/*; \
     sudo rm -v /private/var/vm/sleepimage; \
-    rm -rv \"/Users/paulirish/Library/Application Support/stremio/Cache\";  \
-    rm -rv \"/Users/paulirish/Library/Application Support/stremio/stremio-cache\" \
+    rm -rv \"/Users/twa7331/Library/Application Support/stremio/Cache\";  \
+    rm -rv \"/Users/twa7331/Library/Application Support/stremio/stremio-cache\" \
 "
 
 # Update installed Ruby gems, Homebrew, npm, and their installed packages
-alias brew_update="brew -v update; brew upgrade --force-bottle --cleanup; brew cleanup; brew cask cleanup; brew prune; brew doctor; npm-check -g -u"
-alias update_brew_npm_gem='brew_update; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update --no-document'
+alias brew_update="brew -v update; brew -v upgrade --all; brew cleanup; brew cask cleanup; brew prune; brew doctor"
+alias update_brew_npm_gem='brew_update; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update --no-rdoc --no-ri'
+
+
+# One of @janmoesen’s ProTip™s
+for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+	alias "$method"="lwp-request -m '$method'"
+done
+
+# Set the effing proxy variables
+alias proxy='export HTTP_PROXY=http://vss-proxy.sfg.corp.local:8080;export HTTPS_PROXY=$HTTP_PROXY;export http_proxy=$HTTP_PROXY;export https_proxy=$HTTP_PROXY'
+alias noproxy='unset HTTP_PROXY;unset HTTPS_PROXY;unset  http_proxy;unset https_proxy'
+
+# Set kubernetes config
+alias kansible="export KUBECONFIG=~/.kube/config.ansible.local"
+alias knonprod="export KUBECONFIG=~/.kube/config.nonprod.local"
+
+alias awssfg='export AWS_DEFAULT_PROFILE=sfg;export AWS_PROFILE=sfg'
+alias awshome='export AWS_DEFAULT_PROFILE=home;export AWS_PROFILE=home'

@@ -1,7 +1,8 @@
 # This prompt inspired by gf3, sindresorhus, alrra, and mathiasbynens.
 # but customized to me. <3
 
-default_username='paulirish'
+#Set default username in ~/.extra
+#default_username=''
 
 
 if which thefuck > /dev/null; then
