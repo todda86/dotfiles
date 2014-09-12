@@ -1,0 +1,11 @@
+# Determine the network location
+if [ -f "/usr/sbin/scselect" ]; then
+	export LOCATION=$(/usr/sbin/scselect 2>&1 | perl -ne 'if (m/^\s+\*\s+(\S+)\s+\((.+)\)$/) { print "$2\n"; }')
+fi
+
+SCR=$( echo "$LOCATION" | tr -s  '[:upper:]'  '[:lower:]' )
+
+# Run the network locaiton specific scripts
+if [ -f ~/.$SCR ]; then
+	source ~/.$SCR
+fi

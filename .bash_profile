@@ -31,6 +31,11 @@ export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
 export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
+#Jenv command completion
+eval "$(jenv init -)"
+
+#Git command completion
+source ~/bin/git-completion.bash
 
 ##
 ## gotta tune that bash_history…
@@ -109,6 +114,10 @@ if  which brew > /dev/null; then
         source "$(brew --prefix)/etc/bash_completion.d/hub.bash_completion.sh";
     fi;
 fi;
+ 
+# Kubernetes command prompts
+export KUBE_PS1_SYMBOL_COLOR="magenta"
+source "/Users/twa7331/dev/repositories/kube-ps1/kube-ps1.sh"
 
 
 # Enable tab completion for `g` by marking it as an alias for `git`
@@ -126,6 +135,18 @@ fi
 complete -W "NSGlobalDomain" defaults
 
 
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+#kube completion
+export KUBECONFIG=~/.kube/sfg-on-prem-oidc.conf
+source <(kubectl completion bash)
+[ -f /usr/local/etc/bash_completion.d ] && . /usr/local/etc/bash_completion
+
+##
+## direnv
+##
+eval "$(direnv hook bash)"
 ##
 ## better `cd`'ing
 ##
@@ -141,3 +162,18 @@ shopt -s dirspell 2> /dev/null
 
 # Turn on recursive globbing (enables ** to recurse all directories)
 shopt -s globstar 2> /dev/null
+# Add SSH keys to kehy manager post sierra upgrade
+ssh-add -A 2>/dev/null;
+
+
+# The next line updates PATH for the Google Cloud SDK.
+#source '/Users/paulirish/google-cloud-sdk/path.bash.inc'
+
+# The next line enables shell command completion for gcloud.
+#source '/Users/paulirish/google-cloud-sdk/completion.bash.inc'
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/twa7331/Desktop/google-cloud-sdk/path.bash.inc' ]; then source '/Users/twa7331/Desktop/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/twa7331/Desktop/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/twa7331/Desktop/google-cloud-sdk/completion.bash.inc'; fi

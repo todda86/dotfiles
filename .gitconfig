@@ -20,7 +20,7 @@
 	git = !exec git
 
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = ~/.gitignore_global
 	attributesfile = ~/.gitattributes
 	precomposeUnicode = true
 
@@ -63,8 +63,6 @@
 [merge]
 	tool = opendiff
 	renameLimit = 0
-
-
 	
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
@@ -102,4 +100,3 @@
 	showPatch = true
 [log]
 	date = relative
-

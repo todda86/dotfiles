@@ -29,6 +29,9 @@ brew install homebrew/completions/brew-cask-completion
 # Install wget with IRI support
 brew install wget --with-iri
 
+# install direnv
+brew install direnv
+
 # Install more recent versions of some OS X tools
 brew install vim --with-override-system-vi
 brew install homebrew/dupes/nano

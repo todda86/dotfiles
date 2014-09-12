@@ -23,6 +23,7 @@ brew cask install iterm2
 brew cask install sublime-text
 brew cask install imagealpha
 brew cask install imageoptim
+brew cask install atom
 
 # fun
 brew cask install limechat
@@ -48,6 +49,7 @@ brew cask install spotify
 
 brew tap caskroom/fonts 
 brew cask install font-fira-code
+#brew cask install utorrent
 
 
 # Not on cask but I want regardless.

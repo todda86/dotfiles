@@ -33,9 +33,9 @@ set diffopt=filler " Add vertical spaces to keep right and left aligned
 set diffopt+=iwhite " Ignore whitespace changes (focus on code changes)
 set encoding=utf-8 nobomb " BOM often causes trouble
 set esckeys " Allow cursor keys in insert mode
-set expandtab " Expand tabs to spaces
+"set expandtab " Expand tabs to spaces
 set foldcolumn=0 " Column to show folds
-set foldenable " Enable folding
+set nofoldenable " Enable folding
 set foldlevel=0 " Close all folds by default
 set foldmethod=syntax " Syntax are used to specify folds
 set foldminlines=0 " Allow folding single lines
@@ -161,13 +161,6 @@ augroup general_config
   nnoremap ' `
   " }}}
 
-  " Hard to type things {{{
-  iabbrev >> →
-  iabbrev << ←
-  iabbrev ^^ ↑
-  iabbrev VV ↓
-  iabbrev aa λ
-  " }}}
 
   " Toggle show tabs and trailing spaces (,c) {{{
   set lcs=tab:›\ ,trail:·,eol:¬,nbsp:_
