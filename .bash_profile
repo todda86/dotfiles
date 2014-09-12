@@ -31,6 +31,11 @@ export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
 export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
+#Jenv command completion
+eval "$(jenv init -)"
+
+#Git command completion
+source ~/bin/git-completion.bash
 
 ##
 ## gotta tune that bash_history…
@@ -80,7 +85,6 @@ export NVM_DIR="$HOME/.nvm"
 zpath="$(brew --prefix)/etc/profile.d/z.sh"
 [ -s $zpath ] && source $zpath
 
-
 ##
 ## Completion…
 ##
@@ -116,6 +120,13 @@ fi;
 complete -W "NSGlobalDomain" defaults
 
 
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+#kube completion
+export KUBECONFIG=~/.kube/nonprod-admin
+source <(kubectl completion bash)
+
 ##
 ## better `cd`'ing
 ##
@@ -131,3 +142,18 @@ shopt -s dirspell 2> /dev/null
 
 # Turn on recursive globbing (enables ** to recurse all directories)
 shopt -s globstar 2> /dev/null
+# Add SSH keys to kehy manager post sierra upgrade
+ssh-add -A 2>/dev/null;
+
+
+# The next line updates PATH for the Google Cloud SDK.
+#source '/Users/paulirish/google-cloud-sdk/path.bash.inc'
+
+# The next line enables shell command completion for gcloud.
+#source '/Users/paulirish/google-cloud-sdk/completion.bash.inc'
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/twa7331/Desktop/google-cloud-sdk/path.bash.inc' ]; then source '/Users/twa7331/Desktop/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/twa7331/Desktop/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/twa7331/Desktop/google-cloud-sdk/completion.bash.inc'; fi

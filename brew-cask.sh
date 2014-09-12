@@ -48,6 +48,7 @@ brew cask install spotify
 
 brew tap caskroom/fonts 
 brew cask install font-fira-code
+#brew cask install utorrent
 
 
 # Not on cask but I want regardless.
