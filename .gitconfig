@@ -73,6 +73,12 @@
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
 
+
+# Any GitHub repo with my username should be checked out r/w by default
+# http://rentzsch.tumblr.com/post/564806957/public-but-hackable-git-submodules
+[url "git@github.com:todda86/"]
+  insteadOf = "git://github.com/todda86/"
+
 # correct typos
 [help]
 	autocorrect = 1
@@ -102,3 +108,6 @@
 	fetch = +refs/heads/*:refs/remotes/origin/*
 [stash]
 	showPatch = true
+[user]
+	name = twa7331
+	email = twanderson@sfgmembers.com

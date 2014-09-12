@@ -31,6 +31,11 @@ export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
 export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
+#Jenv command completion
+eval "$(jenv init -)"
+
+#Git command completion
+source ~/bin/git-completion.bash
 
 ##
 ## gotta tune that bash_history…
@@ -79,7 +84,6 @@ export NVM_DIR="$HOME/.nvm"
 # z beats cd most of the time. `brew install z`
 zpath="$(brew --prefix)/etc/profile.d/z.sh"
 [ -s $zpath ] && source $zpath
-
 
 ##
 ## Completion…
@@ -131,3 +135,9 @@ shopt -s dirspell 2> /dev/null
 
 # Turn on recursive globbing (enables ** to recurse all directories)
 shopt -s globstar 2> /dev/null
+
+# The next line updates PATH for the Google Cloud SDK.
+#source '/Users/paulirish/google-cloud-sdk/path.bash.inc'
+
+# The next line enables shell command completion for gcloud.
+#source '/Users/paulirish/google-cloud-sdk/completion.bash.inc'

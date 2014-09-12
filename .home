@@ -1,0 +1,2 @@
+# maven setitngs
+ln -s -f ~/.m2/settings-home.xml ~/.m2/settings.xml 
