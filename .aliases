@@ -88,5 +88,15 @@ alias emptytrash=" \
 "
 
 # Update installed Ruby gems, Homebrew, npm, and their installed packages
-alias brew_update="brew -v update; brew upgrade --force-bottle --cleanup; brew cleanup; brew cask cleanup; brew prune; brew doctor; npm-check -g -u"
-alias update_brew_npm_gem='brew_update; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update --no-document'
+alias brew_update="brew -v update; brew -v upgrade --all; brew cleanup; brew cask cleanup; brew prune; brew doctor"
+alias update_brew_npm_gem='brew_update; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update --no-rdoc --no-ri'
+
+
+# One of @janmoesen’s ProTip™s
+for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+	alias "$method"="lwp-request -m '$method'"
+done
+
+# Set the effing proxy variables
+alias proxy="export HTTP_PROXY=http://vss-proxy.sfg.corp.local:8080;export HTTPS_PROXY=$HTTP_PROXY;export http_proxy=$HTTP_PROXY;export https_proxy=$HTTP_PROXY"
+alias noproxy="unset HTTP_PROXY;unset HTTPS_PROXY;unset  http_proxy;unset https_proxy"
