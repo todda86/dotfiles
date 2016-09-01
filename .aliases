@@ -99,5 +99,8 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 done
 
 # Set the effing proxy variables
-alias proxy="export HTTP_PROXY=http://vss-proxy.sfg.corp.local:8080;export HTTPS_PROXY=$HTTP_PROXY;export http_proxy=$HTTP_PROXY;export https_proxy=$HTTP_PROXY"
-alias noproxy="unset HTTP_PROXY;unset HTTPS_PROXY;unset  http_proxy;unset https_proxy"
+alias proxy='export HTTP_PROXY=http://vss-proxy.sfg.corp.local:8080;export HTTPS_PROXY=$HTTP_PROXY;export http_proxy=$HTTP_PROXY;export https_proxy=$HTTP_PROXY'
+alias noproxy='unset HTTP_PROXY;unset HTTPS_PROXY;unset  http_proxy;unset https_proxy'
+
+alias awssfg='export AWS_DEFAULT_PROFILE=sfg;export AWS_PROFILE=sfg'
+alias awshome='export AWS_DEFAULT_PROFILE=home;export AWS_PROFILE=home'

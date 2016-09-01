@@ -42,7 +42,7 @@ brew cask install screenflow
 brew cask install vlc
 brew cask install gpgtools
 brew cask install licecap
-brew cask install utorrent
+#brew cask install utorrent
 
 
 # Not on cask but I want regardless.
