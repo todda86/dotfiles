@@ -30,6 +30,15 @@
 # so much color
 [color]
 	ui = always
+[core]
+	excludesfile = /Users/twa7331/.gitignore_global
+	attributesfile = ~/.gitattributes
+	# insanely beautiful diffs
+	pager = diff-highlight | diff-so-fancy | less -r 
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
 [color "diff"]
 	meta = yellow bold
 	commit = green bold
@@ -111,3 +120,15 @@
 [user]
 	name = twa7331
 	email = twanderson@sfgmembers.com
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[commit]
+	template = /Users/twa7331/.stCommitMsg
