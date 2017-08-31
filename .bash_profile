@@ -108,6 +108,12 @@ fi;
 complete -W "NSGlobalDomain" defaults
 
 
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+#kube completion
+source <(kubectl completion bash)
+
 ##
 ## better `cd`'ing
 ##
@@ -127,3 +133,9 @@ shopt -s cdspell;
 
 # The next line enables shell command completion for gcloud.
 #source '/Users/paulirish/google-cloud-sdk/completion.bash.inc'
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/twa7331/Desktop/google-cloud-sdk/path.bash.inc' ]; then source '/Users/twa7331/Desktop/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/twa7331/Desktop/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/twa7331/Desktop/google-cloud-sdk/completion.bash.inc'; fi
