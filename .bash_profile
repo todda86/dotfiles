@@ -124,6 +124,7 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 #kube completion
+export KUBECONFIG=~/.kube/config.nonprod.local
 source <(kubectl completion bash)
 
 ##
@@ -141,6 +142,9 @@ shopt -s dirspell 2> /dev/null
 
 # Turn on recursive globbing (enables ** to recurse all directories)
 shopt -s globstar 2> /dev/null
+# Add SSH keys to kehy manager post sierra upgrade
+ssh-add -A 2>/dev/null;
+
 
 # The next line updates PATH for the Google Cloud SDK.
 #source '/Users/paulirish/google-cloud-sdk/path.bash.inc'
