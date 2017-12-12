@@ -124,7 +124,7 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 #kube completion
-export KUBECONFIG=~/.kube/config.nonprod.local
+export KUBECONFIG=~/.kube/nonprod-admin
 source <(kubectl completion bash)
 
 ##
