@@ -71,19 +71,13 @@ alias diskspace_report="df -P -kHl"
 alias free_diskspace_report="diskspace_report"
 
 # kube
-alias kdev='k config use-context dev'
-alias kqa='k config use-context qa'
-alias kqa='k config use-context qa'
-alias ksys='k config use-context system'
-alias kmon='k config use-context monitoring'
-alias kconf="k config use-context"
-
-alias kenv='k config get-contexts'
+alias k="kubectl"
+alias ktx=kubectx
+alias kns=kubens
 alias pods='k get pods'
 alias services='k get services'
 
 # Shortcuts
-alias k="kubectl"
 alias g="git"
 alias v="vim"
 alias vi="vim"

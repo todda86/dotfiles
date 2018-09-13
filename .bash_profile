@@ -109,6 +109,10 @@ fi;
 if  which hub > /dev/null; then
     source "$(brew --prefix)/etc/bash_completion.d/hub.bash_completion.sh";
 fi;
+ 
+# Kubernetes command prompts
+export KUBE_PS1_SYMBOL_COLOR="magenta"
+source "/Users/twa7331/dev/repositories/kube-ps1/kube-ps1.sh"
 
 # Enable tab completion for `g` by marking it as an alias for `git`
 if type __git_complete &> /dev/null; then
@@ -124,8 +128,9 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 #kube completion
-export KUBECONFIG=~/.kube/nonprod-admin
+export KUBECONFIG=~/.kube/sfg-on-prem.conf
 source <(kubectl completion bash)
+[ -f /usr/local/etc/bash_completion.d ] && . /usr/local/etc/bash_completion
 
 ##
 ## better `cd`'ing
