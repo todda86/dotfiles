@@ -82,6 +82,7 @@ alias g="git"
 alias v="vim"
 alias vi="vim"
 alias ungz="gunzip -k"
+alias ll="ls -l"
 
 # File size
 alias fs="stat -f \"%z bytes\""
