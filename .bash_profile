@@ -128,10 +128,14 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 #kube completion
-export KUBECONFIG=~/.kube/sfg-on-prem.conf
+export KUBECONFIG=~/.kube/sfg-on-prem-oidc.conf
 source <(kubectl completion bash)
 [ -f /usr/local/etc/bash_completion.d ] && . /usr/local/etc/bash_completion
 
+##
+## direnv
+##
+eval "$(direnv hook bash)"
 ##
 ## better `cd`'ing
 ##

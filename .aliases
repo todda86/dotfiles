@@ -74,8 +74,12 @@ alias free_diskspace_report="diskspace_report"
 alias k="kubectl"
 alias ktx=kubectx
 alias kns=kubens
-alias pods='k get pods'
-alias services='k get services'
+alias pods='k get pods -o wide'
+alias kp='k get pods -o wide | grep'
+alias services='k get services -o wide'
+
+# run tridentctl on trident pod, requires kubectl and and exec permissions on trident-main container in main trident pod
+alias tridentctl='kubectl exec -t -n trident $(kubectl get pods -n trident -l app=controller.csi.trident.netapp.io -o jsonpath="{.items[].metadata.name}") -c trident-main -- tridentctl -s 127.0.0.1:8000'
 
 # Shortcuts
 alias g="git"
@@ -83,6 +87,7 @@ alias v="vim"
 alias vi="vim"
 alias ungz="gunzip -k"
 alias ll="ls -l"
+alias sed="gsed"
 
 # File size
 alias fs="stat -f \"%z bytes\""
@@ -105,14 +110,6 @@ alias update_brew_npm_gem='brew_update; npm install npm -g; npm update -g; sudo 
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 	alias "$method"="lwp-request -m '$method'"
 done
-
-# Set the effing proxy variables
-alias proxy='export HTTP_PROXY=http://vss-proxy.sfg.corp.local:8080;export HTTPS_PROXY=$HTTP_PROXY;export http_proxy=$HTTP_PROXY;export https_proxy=$HTTP_PROXY'
-alias noproxy='unset HTTP_PROXY;unset HTTPS_PROXY;unset  http_proxy;unset https_proxy'
-
-# Set kubernetes config
-alias kansible="export KUBECONFIG=~/.kube/config.ansible.local"
-alias knonprod="export KUBECONFIG=~/.kube/config.nonprod.local"
 
 alias awssfg='export AWS_DEFAULT_PROFILE=sfg;export AWS_PROFILE=sfg'
 alias awshome='export AWS_DEFAULT_PROFILE=home;export AWS_PROFILE=home'
